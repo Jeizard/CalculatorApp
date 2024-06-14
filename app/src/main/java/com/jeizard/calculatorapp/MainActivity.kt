@@ -1,6 +1,7 @@
 package com.jeizard.calculatorapp
 
 import android.os.Bundle
+import android.text.Editable
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.jeizard.calculatorapp.databinding.ActivityMainBinding
@@ -40,6 +41,7 @@ import com.jeizard.calculatorapp.Constants.STATE_RESULT_FIELD
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var entryText: Editable
 
     private val operators = listOf(OPERATOR_ADD, OPERATOR_SUBTRACT, OPERATOR_MULTIPLY,
         OPERATOR_DIVIDE, OPERATOR_POWER, OPERATOR_DOT, OPERATOR_OPEN_BRACKET, OPERATOR_PERCENT
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         binding.entryField.setShowSoftInputOnFocus(false)
         binding.entryField.setSelection(binding.entryField.text.length)
         binding.entryField.requestFocus()
+        entryText = binding.entryField.text
         setButtonsClickListeners()
     }
 
@@ -67,10 +70,10 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         binding.resultField.text = savedInstanceState.getString(STATE_RESULT_FIELD)
+        entryText = binding.entryField.text
     }
 
     private fun setButtonsClickListeners() {
-        var entryText = binding.entryField.text
         val buttons = listOf(
             binding.btnBack, binding.btnClear, binding.btnResult,
             binding.btnAdd, binding.btnSubtract, binding.btnMultiply,
