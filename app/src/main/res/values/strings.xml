@@ -1,3 +1,32 @@
 <resources>
-    <string name="app_name">CalculatorApp</string>
+    <string name="app_name">Калькулятор</string>
+    <string name="power">^</string>
+    <string name="root">√</string>
+    <string name="percent">%</string>
+    <string name="reciprocal">1/x</string>
+    <string name="memory_store">MS</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="division">÷</string>
+    <string name="memory_recall">MR</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="multiply">×</string>
+    <string name="memory_add">M+</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="subtract">−</string>
+    <string name="memory_subtract">M−</string>
+    <string name="sign">+/−</string>
+    <string name="_0">0</string>
+    <string name="dot">.</string>
+    <string name="add">+</string>
+    <string name="result">=</string>
+    <string name="memory_clear">MC</string>
+    <string name="bracket">( )</string>
+    <string name="back">←</string>
+    <string name="clear">C</string>
 </resources>
