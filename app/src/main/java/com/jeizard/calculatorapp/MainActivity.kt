@@ -235,14 +235,14 @@ class MainActivity : AppCompatActivity() {
                                         break
                                     }
                                 } else {
-                                    if (nextFirstChar != null && nextFirstChar == OPERATOR_DOT) {
+                                    val prevChar =
+                                        entryText.getOrNull(binding.entryField.selectionStart - 1)
+                                    if (nextFirstChar != null && nextFirstChar == OPERATOR_DOT && prevChar != null && operators.contains(prevChar)) {
                                         entryText.delete(
                                             binding.entryField.selectionStart,
                                             binding.entryField.selectionStart + 1
                                         )
                                     } else {
-                                        val prevChar =
-                                            entryText.getOrNull(binding.entryField.selectionStart - 1)
                                         if (prevChar != null && nextFirstChar != null &&
                                             operators.contains(prevChar) && operators.contains(
                                                 nextFirstChar
