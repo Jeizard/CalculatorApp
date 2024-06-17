@@ -406,7 +406,7 @@ class MainActivity : AppCompatActivity() {
                             val lastNumber = str.split(Regex(REGEX_OPERATORS)).lastOrNull()
                             if (!lastNumber.isNullOrBlank()) {
                                 val lastIndex = str.lastIndexOf(lastNumber)
-                                if (lastIndex > 0 && str[lastIndex - 1] == OPERATOR_SUBTRACT) {
+                                if (lastIndex > 1 && str[lastIndex - 1] == OPERATOR_SUBTRACT && str[lastIndex - 2] == OPERATOR_OPEN_BRACKET) {
                                     if (entryText.count { it == OPERATOR_OPEN_BRACKET } > entryText.count { it == OPERATOR_CLOSE_BRACKET }) {
                                         entryText.delete(
                                             lastIndex - 2,
@@ -430,6 +430,8 @@ class MainActivity : AppCompatActivity() {
         if (processedText.isNotEmpty()) {
             processedText = processedText.replace(Regex(REGEX_PERCENT), REPLACE_PERCENT)
             processedText = processedText.replace(OPERATOR_PERCENT.toString(), REPLACE_PERCENT_VALUE)
+
+            processedText = processedText.replace(OPERATOR_OPEN_BRACKET.toString() + OPERATOR_SUBTRACT, "((-1)*")
 
             while (processedText.isNotEmpty() && operators.contains(processedText.last())) {
                 processedText = processedText.dropLast(1)

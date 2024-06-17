@@ -29,7 +29,7 @@ class Calculator {
                 DecimalFormat(DECIMAL_FORMAT_PATTERN, DecimalFormatSymbols(Locale.US)).format(result)
             }
         } catch (e: Exception) {
-            return e.message.toString()
+            return ""
         }
     }
 
